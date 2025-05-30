@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mais Mais - Para Micaela</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: black url('https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png') repeat;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      overflow: hidden;
+      text-align: center;
+    }
+    .mensagem {
+      margin-top: 50px;
+      padding: 20px;
+    }
+    img.foto {
+      width: 200px;
+      border-radius: 12px;
+      margin: 20px auto;
+    }
+    .botao-musica {
+      background: white;
+      color: black;
+      border-radius: 12px;
+      padding: 10px 20px;
+      margin: 20px auto;
+      font-weight: bold;
+    }
+    .chuva img {
+      position: absolute;
+      width: 30px;
+      animation: cair 5s linear infinite;
+    }
+    @keyframes cair {
+      0% { transform: translateY(-100px); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <audio id="audio" src="musica.mp3"></audio>
+  <div class="mensagem">
+    <h1>Parabéns, Sol!</h1>
+    <p>Te desejo tudo de melhor que a vida possa oferecer.<br>
+    Que Deus te ilumine sempre e esteja ao seu lado em todos os momentos.<br>
+    Continue sendo essa pessoa iluminada e cheia de paz que encanta a todos.<br>
+    Muito obrigado por me permitir fazer parte da sua vida.<br>
+    De coração, espero que todos os seus sonhos se realizem.<br>
+    <strong>Beijos com carinho! 🌺💖</strong></p>
+    <img src="imagem.jpg" class="foto">
+    <div><button class="botao-musica" onclick="document.getElementById('audio').play()">🎤 Tocar música</button></div>
+  </div>
+
+  <div class="chuva" id="chuva"></div>
+
+  <script>
+    const imagens = ['coração1.png', 'coração2.png', 'lirio1.png', 'lirio2.png'];
+    function criarElementoChuva() {
+      const el = document.createElement("img");
+      el.src = imagens[Math.floor(Math.random() * imagens.length)];
+      el.style.left = Math.random() * window.innerWidth + "px";
+      el.style.top = "-50px";
+      el.style.animationDuration = (Math.random() * 2 + 3) + "s";
+      document.getElementById("chuva").appendChild(el);
+      setTimeout(() => el.remove(), 6000);
+    }
+    setInterval(criarElementoChuva, 500);
+  </script>
+</body>
+</html>
